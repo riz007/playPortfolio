@@ -1,0 +1,161 @@
+<script type="text/javascript">
+      $(document).ready(function(){
+        function myMap() {
+            var myCenter = new google.maps.LatLng(13.7563, 100.5018);
+            var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            var marker = new google.maps.Marker({position:myCenter});
+            marker.setMap(map);
+        }
+         $("form").submit(function(e) {
+
+              var error = "";
+
+              if ($("#email").val() == "") {
+
+                  error += "The email field is required.<br>"
+
+              }
+
+              if ($("#subject").val() == "") {
+
+                  error += "The subject field is required.<br>"
+
+              }
+
+              if ($("#content").val() == "") {
+
+                  error += "The content field is required.<br>"
+
+              }
+
+              if (error != "") {
+
+                 $("#error").html('<div class="alert alert-danger" role="alert"><p><strong>There were error(s) in your form:</strong></p>' + error + '</div>');
+
+                  return false;
+
+              } else {
+
+                  return true;
+
+              }
+          });
+
+        $('.skillbar').each(function() {
+            $(this).find('.skillbar-bar').animate({
+              width: $(this).attr('data-percent')
+            },6000);
+        });
+      });
+
+</script>
+
+
+<script>
+    var rizfolio = angular.module('rizfolioApp', []);
+    rizfolio.controller('portfolioController', function($scope) {
+        $scope.cateData = [
+            {
+                title: 'Water Level Management System',
+                img: 'http://riz.one/img/portfolio-1.jpg',
+                des: 'A beautiful project on Raspberry Pi based IoT Platform. Real time data measurement using web service API.',
+                url: 'http://flood.riz.one'
+
+            },
+            {
+                title: 'Contact Management System',
+                img: 'http://riz.one/img/portfolio-5.jpg',
+                des:'Create contacts and stored them in a SQL based database. You can add, edit and delete more and more contacts if you want.',
+                url: 'http://contact.riz.one'
+
+            },
+            {
+                title: 'Amar Bangkok',
+                img: 'http://riz.one/img/amarbkk.PNG',
+                des: 'First Bangkok based travel directory ever in Bengali language. Bangladeshis can easily find local restaurants, transport information, hospitals and police station information using this application.',
+                url: ''
+
+            },
+            {
+                title: 'Mechanic Finder',
+                img: '/public/images/mechanic.PNG',
+                des: 'Are you looking for mechanics? Then you can use this app to find mechanics nearby your area.',
+                url: 'http://mechanic.riz.one'
+
+            },
+            {
+                title: 'AUSO Official Website',
+                img: 'http://riz.one/img/portfolio-3.jpg',
+                des: 'First official website of Assumption University Student Organization (AUSO). Developed in WordPress CMS.',
+                url: 'http://auso.au.edu'
+
+            }
+
+        ]
+
+
+
+    });
+
+    rizfolio.controller('toolsController', function($scope) {
+              $scope.frontEndData = [
+            {
+                title: 'HTML5',
+                img: '/public/images/HTML5_Logo_128.png'
+
+            },
+            {
+                title: 'CSS3',
+                img: '/public/images/preview-css3logo.png'
+
+            },
+            {
+                title: 'JavaScript',
+                img: '/public/images/js1_0.png'
+            },
+            {
+                title: 'jQuery',
+                img: '/public/images/jQurery.gif'
+            },
+            {
+                title: 'AngularJS',
+                img: '/public/images/AngularJS-Shield.svg'
+            },
+            {
+                title: 'ReactJS',
+                img: '/public/images/react.svg'
+            }
+
+        ];
+
+        $scope.backEndData = [
+            {
+                title: 'PHP',
+                img: '/public/images/php-logo.png'
+
+            },
+            {
+                title: 'JAVA',
+                img: '/public/images/java-logo-vector.png'
+
+            },
+            {
+                title: 'SQL',
+                img: '/public/images/sql-server.png'
+            },
+            {
+                title: 'Node.js',
+                img: '/public/images/node-js.png'
+            },
+            {
+                title: 'MongoDB',
+                img: '/public/images/mongodb.png'
+            }
+
+        ]
+
+
+    });
+
+</script>

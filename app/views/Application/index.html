@@ -1,0 +1,283 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+#{set 'moreStyles'}
+#{/set}
+
+#{set 'moreScripts'}
+#{include 'Application/rizfolioscript.html' /}
+#{/set}
+
+<body>
+    <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse bg-inverse" id="toTop">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Rizwanul</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tools</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="email" placeholder="Email">
+                <input class="form-control mr-sm-2" type="password" placeholder="Password">
+                <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <h1 class="display-3">Welcome to my portfolio!</h1>
+        <p class="lead">I am Riz. Web Front-End Engineer at Cal-Comp Electronics (Thailand)</p>
+        <hr class="m-y-2">
+        <p>I can help you to build your next website, software or web apps!</p>
+
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+    </div>
+
+    <div class="container-fluid" id="about">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>About</h1>
+                <p class="lead">Experienced in Responsive and Mobile design,RESTful Services and APIs, CSS Preprocessors.<br>
+                    I am experienced in Web Development using MVC frameworks like<br>
+                    Play! Framework. I can provide you the best<br>
+                    Web Development experience with W3C format, neat and clean HTML5/CSS3<br>
+                    codes with preprocessors (SASS).Strong back-end support<br>
+                    using PHP or JAVA. For database integration SQL/MySQL.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="skillsDiv">
+        <div class="container text-center">
+            <h1>Skills</h1>
+        </div>
+          <div class="row">
+              <div class="col-md-4 push-md-2">
+                  <div class="skills">
+                      <div class="skillbar clearfix " data-percent="95%">
+                          <div class="skillbar-title" style="background: #d35400;"><span>HTML5</span></div>
+                          <div class="skillbar-bar" style="background: #e67e22;"></div>
+                          <div class="skill-bar-percent">95%</div>
+                      </div> <!-- End Skill Bar -->
+
+                      <div class="skillbar clearfix " data-percent="90%">
+                          <div class="skillbar-title" style="background: #2980b9;"><span>CSS3</span></div>
+                          <div class="skillbar-bar" style="background: #3498db;"></div>
+                          <div class="skill-bar-percent">90%</div>
+                      </div> <!-- End Skill Bar -->
+
+                      <div class="skillbar clearfix " data-percent="80%">
+                          <div class="skillbar-title" style="background: #2c3e50;"><span>JavaScript/jQuery</span></div>
+                          <div class="skillbar-bar" style="background: #2c3e50;"></div>
+                          <div class="skill-bar-percent">80%</div>
+                      </div> <!-- End Skill Bar -->
+
+                      <div class="skillbar clearfix " data-percent="85%">
+                          <div class="skillbar-title" style="background: #46465e;"><span>PHP/Laravel</span></div>
+                          <div class="skillbar-bar" style="background: #5a68a5;"></div>
+                          <div class="skill-bar-percent">85%</div>
+                      </div> <!-- End Skill Bar -->
+
+                      <div class="skillbar clearfix " data-percent="75%">
+                          <div class="skillbar-title" style="background: #333333;"><span>AngularJS</span></div>
+                          <div class="skillbar-bar" style="background: #525252;"></div>
+                          <div class="skill-bar-percent">75%</div>
+                      </div> <!-- End Skill Bar -->
+
+                      <div class="skillbar clearfix " data-percent="60%">
+                          <div class="skillbar-title" style="background: #27ae60;"><span>Node.js</span></div>
+                          <div class="skillbar-bar" style="background: #2ecc71;"></div>
+                          <div class="skill-bar-percent">60%</div>
+                      </div> <!-- End Skill Bar -->
+
+                      <div class="skillbar clearfix " data-percent="90%">
+                          <div class="skillbar-title" style="background: #124e8c;"><span>SQL</span></div>
+                          <div class="skillbar-bar" style="background: #4288d0;"></div>
+                          <div class="skill-bar-percent">90%</div>
+                      </div> <!-- End Skill Bar -->
+                  </div>
+              </div>
+              <div class="col-md-4 push-md-2">
+                  <div class="row">
+                      <img class="portfolio" src="/public/images/riz-port-photo1.jpg" alt="portfolio">
+                  </div>
+              </div>
+          </div>
+    </div>
+
+
+    <div id="portfolio" class="container-fluid" ng-app="rizfolioApp" ng-controller="portfolioController">
+        <div class="container text-center">
+            <h1>Portfolio</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6 text-center" ng-repeat="item in cateData">
+                        <a href="{{item.url}}"><img ng-src="{{item.img}}" class="img-category img-responsive"> </a>
+                        <h3 class="text-center">{{item.title}}</h3><br>
+                        <h4 class="text-center">{{item.des}}</h4><br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="row">-->
+            <!--<div class="col-lg-12 col-lg-offset-1 text-center">-->
+                <!--<h2>Some of my works</h2>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-12">-->
+                        <!--<div ng-repeat="item in cateData" class="col-md-6">-->
+                            <!--<a href="{{item.url}}"><img ng-src="{{item.img}}" class="img-category img-responsive"> </a>-->
+                            <!--<p class="text-category-center">{{item.title}}</p><br>-->
+                            <!--<p class="text-category-center">{{item.des}}</p><br><br>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+
+    <div class="container" id="tools" ng-app="rizfolioApp" ng-controller="toolsController">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Tools I Use</h1><br>
+                <div class="row">
+                    <div class="container">
+                        <h1>Front-end Development</h1><br>
+                    </div>
+                    <div class="col-md-2" ng-repeat="item in frontEndData">
+                        <img ng-src="{{item.img}}" class="img-responsive">
+                    </div>
+                    <!--<div class="col-md-2">-->
+                        <!--<img src="/public/images/preview-css3logo.png" alt="css3-logo">-->
+                    <!--</div>-->
+                    <!--<div class="col-md-2">-->
+                        <!--<img src="/public/images/js1_0.png" alt="js-logo">-->
+                    <!--</div>-->
+                    <!--<div class="col-md-2">-->
+                        <!--<img src="/public/images/jQurery.gif" alt="jQuery-logo">-->
+                    <!--</div>-->
+                    <!--<div class="col-md-2">-->
+                        <!--<img src="/public/images/AngularJS-Shield.svg" alt="angular-logo">-->
+                    <!--</div>-->
+                    <!--<div class="col-md-2">-->
+                        <!--<img src="/public/images/react.svg" alt="react-logo">-->
+                    <!--</div>-->
+                </div><br>
+
+                <div class="row">
+                    <div class="container">
+                        <h1>Back-end Development</h1><br>
+                    </div>
+                    <div class="col-md-2" ng-repeat="item in backEndData">
+                        <img ng-src="{{item.img}}" class="img-responsive"> {{item.title}}
+                    </div>
+                    <!--<div class="col-md-2">-->
+                        <!--<img src="/public/images/preview-css3logo.png" alt="css3-logo">-->
+                    <!--</div>-->
+                    <!--<div class="col-md-2">-->
+                        <!--<img src="/public/images/js1_0.png" alt="js-logo">-->
+                    <!--</div>-->
+                    <!--<div class="col-md-2">-->
+                        <!--<img src="/public/images/jQurery.gif" alt="jQuery-logo">-->
+                    <!--</div>-->
+                    <!--<div class="col-md-2">-->
+                        <!--<img src="/public/images/AngularJS-Shield.svg" alt="angular-logo">-->
+                    <!--</div>-->
+                    <!--<div class="col-md-2">-->
+                        <!--<img src="/public/images/react.svg" alt="react-logo">-->
+                    <!--</div>-->
+                </div><br>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div id="contact">
+                    <h1>Contact Me</h1><br>
+                    <div id="error"><? echo $error.$successMessage; ?></div>
+                    <form method="POST">
+                        <fieldset class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                            <small class="text-muted">We'll never share your email with anyone else.</small>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" >
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="content">What would you like to ask me?</label>
+                            <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+                        </fieldset>
+                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+            <!-- Add Google Maps -->
+            <div class="col-md-6 col-sm-12">
+                <div id="googleMap" style="height:572px;width:555px;"></div>
+                <!-- <img class="middle-img" src="img/riz-photo-portfolio-2.jpg" alt="workplace"> -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>Rizwanul Islam Rudra</strong>
+                    </h4>
+                    <hr class="small">
+                    <p class="">Software Developer</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> 0900152360</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:rizwanulrudra@gmail.com">মেইল করুন</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+
+                    <p class="text-muted">Copyright &copy; All rights reserved by Riz</p>
+                </div>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+    </footer>
+
+</body>
